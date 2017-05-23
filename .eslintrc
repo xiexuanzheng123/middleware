@@ -1,0 +1,22 @@
+{
+    "parserOptions": { //EsLint通过parserOptions，允许指定校验的ecma的版本，及ecma的一些特性
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {  // ecmaFeatures指定你想使用哪些额外的语言特性
+            "jsx": true //启动jsx
+        }
+    },
+    "parser": "babel-eslint",
+    "env": {// Environment可以预设好的其他环境的全局变量
+        "browser": true,
+        "node": true,
+        "es6": true,
+        "mocha": true
+    },
+    "plugin": [
+        "react"
+    ],
+    "extends": [
+        "eslint: recommended"
+    ]
+}
