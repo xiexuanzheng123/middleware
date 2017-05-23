@@ -19,7 +19,8 @@ module.exports = {
         // ],
         loaders: [
             {test: /\.less$/, loader: 'style-loader!css-loader!less-loader'},
-            {test: /\.(png|jpg)/, loader:'url-loder?limit=8192'}
+            {test: /\.(png|jpg)/, loader:'url-loder?limit=8192'},
+            {test: /\.js$/, loaders: ['react-hot', 'babel'],include: path.join(__dirname,'src')}
         ]
     },
     resolve: {
