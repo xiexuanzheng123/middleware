@@ -9,13 +9,14 @@ module.exports = {
         './main.js'
     ],
     output: {
-        path:'./build',
-        filename:'bundle.js'
+        path: path.join(__dirname,'./build'),
+        filename:'bundle.js',
+        publicPath: '/'
     },
     module: {
-        preLoader: [
-            {test: /\.js$/,loader: "eslint-loader", exclude: /node_modules/}
-        ],
+        // preLoader: [
+        //     {test: /\.js$/,loader: "eslint-loader", exclude: /node_modules/}
+        // ],
         loaders: [
             {test: /\.less$/, loader: 'style-loader!css-loader!less-loader'},
             {test: /\.(png|jpg)/, loader:'url-loder?limit=8192'}
@@ -25,14 +26,14 @@ module.exports = {
         alias: {
             'react-dom': path.join(__dirname, 'node_modules/react-dom/dist/react-dom.min')
         },
-        extensions: ['', '.js', '.jsx', '.json', '.css']
+        extensions: ['.js', '.jsx', '.json', '.css']
     },
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.UglifyJsPlugin(),
         new webpack.NoErrorsPlugin(),
-        new ExtractTextPlugin('[name]-[hash:5].min.css')
+        //new ExtractTextPlugin('[name]-[hash:5].min.css')
     ],
     externals: {
         jQuery: true
